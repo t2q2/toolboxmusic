@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Tanner's ToolBox</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        li{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="Header">
+
+        <a href="#"><img src="media/logo-no-background.png" alt="Logo" style="width:275px;height:100px;"></a>
+
+        <!--<div class="helper">
+            <img src="media/HelpHome.jpg" alt="You are at the home page" style="width:275px;height:100px;">
+        </div> -->
+
+        <nav class="site-navigation">
+
+            <ul class="nav">
+
+                <li><a href="main.html">Home</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+        </div>
+
+    <div class="Info">
+
+        <h1 style="color:#FFFFFF"><b><br>Music should be enjoyed <em>Ad Free.</em><b></h1><br>
+        <p style="color:#FFFFFF";></pstyle>So in order to do so, toolbox was created. Just upload song's, podcasts,<br> whatever you like to listen to and listen right here. If you use Spotify,<br> you can use the Spotify to mp.3 converter to pull entire playlists.</p>
+
+        <div class="upload-container">
+
+            <input class="uploadButton" type="file" id="file-upload" accept="media/*">
+    
+            <ul class="musicList" style="color: white;" id="playlist"></ul>
+    
+        </div>
+
+
+    </div>
+
+    <div class="mainMusic">
+  
+    <div class="shuffle-container">
+
+        <button id="toggle" class="shufflebutton" onclick="setShuffle()">Shuffle</button>
+
+        <script>
+
+        let shuffle = false;
+
+            function setShuffle() {
+
+        const button = document.getElementById('toggle');
+        
+        if (shuffle === true) {
+        // Change to color 2
+        button.style.backgroundColor = '#3a0162';
+        button.style.color = '#fff';
+        shuffle = false;
+        } else {
+        // Change back to color 1
+        button.style.backgroundColor = '#f9007e';
+        button.style.color = '#fff';
+        shuffle = true;
+        }
+}
+        </script>
+
+    </div>
+
+    
+    <div class="audioPlayer">
+
+    <div id="audio-container">  
+
+        <audio id="audio-player" controls autoplay>
+
+        </audio>
+    </div>
+
+    </div>
+
+    <div class="buttonFunctions">
+
+        <button id="next" class="nextSong" onclick="playNext()">Next</button>
+
+        <button id="before" class="lastSong" onclick="playPrevious()">Before</button>
+
+
+    </div>
+
+    <div class="songList">
+
+    <script>
+
+        const audioPlayer = document.getElementById('audio-player');
+
+        const fileUpload = document.getElementById('file-upload');
+
+        const playlist = document.getElementById('playlist');
+
+        let playlistIndex = 0;
+
+        function lastSong() {
+
+        if (playlistIndex > 0)
+
+        playlistIndex--;
+
+        }
+
+        const files = [];
+
+        function playPrevious(){
+
+            if(playlistIndex > 0) {
+        
+        const file = files[playlistIndex];
+
+        playlistIndex--;
+
+        audioPlayer.src = URL.createObjectURL(file);
+
+        audioPlayer.play();
+        
+            }
+
+        }
+
+        function playNext() {
+
+        if (shuffle === false) { 
+            if (playlistIndex < files.length) {
+
+                const file = files[playlistIndex];
+
+                audioPlayer.src = URL.createObjectURL(file);
+
+                audioPlayer.play();
+
+                playlistIndex++;
+            }
+        
+            else {
+
+            playlistIndex = 0;
+
+            audioPlayer.src = URL.createObjectURL(file);
+
+            }
+        } else {
+
+            if (playlistIndex < files.length) {
+
+            const file = files[playlistIndex];
+
+            audioPlayer.src = URL.createObjectURL(file);
+
+            audioPlayer.play();
+
+            playlistIndex = (playlistIndex*(math.Random *10));
+            }
+
+            else {
+
+            playlistIndex = 0;
+
+            audioPlayer.src = URL.createObjectURL(file);
+
+            }
+
+
+        }
+
+    }
+
+        audioPlayer.addEventListener('ended', playNext);
+
+        fileUpload.addEventListener('change', (e) => {
+
+        const file = e.target.files[0];
+
+        if (file) {
+
+        files.push(file);
+
+        const listItem = document.createElement('li');
+
+        listItem.textContent = file.name;
+
+        listItem.addEventListener('click', () => {
+
+            playlistIndex = files.indexOf(file);
+
+            playNext();
+
+        });
+
+        playlist.appendChild(listItem);
+
+                if (playlistIndex === 0) {
+
+                    playNext();
+                }
+            }
+        });
+
+    </script>
+
+    </div>
+
+</div>
+    
+</body>
+
+<html>

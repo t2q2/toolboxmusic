@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: rgb(179, 179, 179);
+}
+
+ body {
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url(media/gradient.jpg);
+    background-size: 1500px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+ .Header {
+    background: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .site-navigation ul,
+ .site-navigation li {
+     margin: 0;
+     padding: 0;
+ }
+ .site-navigation li {
+    font-size: medium;
+    vertical-align: middle  ;
+    display: inline-block;
+    text-align: center;
+    margin: 50px 50px 25px 35px;
+ }
+
+ .helper{
+    text-align: right;
+ }
+
+.musicList {
+    overflow: scroll;
+}
+ 
+ .Info {
+    letter-spacing: 1.5px;
+    line-height: 20px;
+    word-spacing: 3px;
+    margin: 5px 50px 50px 35px;
+    text-wrap: 100px;
+}
+
+.audioPlayer{
+    display: inline-flex;
+    padding: 25px;
+    
+    /*margin: 50px 200px 50px 50px;
+    transform: translateX(-500%);*/
+}
+
+.shuffle-container {
+    align-self:last baseline;
+    padding: 10px;
+}
+
+.shufflebutton {
+    width: 85px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    background-color: #3a0162;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 15px;
+    transform: translateX(140%);
+}
+
+.upload-container{
+    display: flex;
+    margin: 20px 50px 0px 0px
+}
+
+.uploadButton {
+    border: none;
+    display: flex;
+    padding-left: 20%;
+
+
+}
+
+.upload-container {
+    display: inline-flex;
+
+
+}
+
+.buttonFunctions{
+    padding: 10px,10px,10px,10px;
+    transform: translateX(6%);
+}
+
+.upload-container{
+    transform: translateX(200%);
+}
+
+.nextSong{
+    width: 85px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    background-color: #3a0162;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 15px;
+}
+
+.next:active{
+    background:color(#f9007e);
+
+}
+
+.lastSong{
+    width: 85px;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    background-color: #3a0162;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 15px;
+}
+.lastSong:active{
+    background:color(#f9007e);
+}
+
+.mainMusic{
+    transform: translateX(10%);
+}
